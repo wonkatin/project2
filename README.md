@@ -53,4 +53,5 @@ Sunday:
 * stretch goals
 ### Wireframes
 ### Database ERDs
+![ERD](./assets/kitchen_sink.png)
 ### RESTful routing chart 
