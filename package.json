@@ -1,0 +1,35 @@
+{
+  "name": "project2",
+  "version": "1.0.0",
+  "description": "Kitchen Sink is an app designed to allow users to search for recipes using specific ingredients, based on dietary restrictions and other personal preferences. Users can save recipes they have tried and leave reviews with ratings and comments. Recpies that users have reviewed appear on the homepage for other users to peruse and try. Ideally, users would also be able to mark their favorites, save recipes for later, and store their pantry/grocery list in their profile, along with their own preferences.  ### MVP Goals * Create a profile * Search for recipes * Save recipes with a review  * View and/or add recipes other users have tried * Add comments to reviews ### Stretch Goals * Allow users to search based on dietary restrictions and other preferences * Allow users to favorite and bookmark recipes  * Allow users to limit search results based on the number of ingredients in the ingredient list, to target even more specific recipes * Allow users to store their grocery/pantry list in their profile, with ability to add items to search query from this list * Alert users when items in pantry list need to be used based on expiration/shelf life * Users can auto-populate pantry list based on bar-codes and pictures of reciepts ### User Stories * As a user, I want to be able to search for recipes that include specific ingredients and preferences * As a user, I want to be able to create a profile  * As a user, I want to save and review recipes that I have tried * As a user, I want to be able to see recipes that other people have tried and comment on their reviews ### APIs I plan to use the [Edamam Recipe API](https://developer.edamam.com/edamam-docs-recipe-api) for MVP and the [Shelf Life API](https://github.com/jcomo/shelf-life) for Stretch Goals.  ### Daily Sprints",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wonkatin/project2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wonkatin/project2/issues"
+  },
+  "homepage": "https://github.com/wonkatin/project2#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.5",
+    "crypto-js": "^4.0.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "method-override": "^3.0.0",
+    "morgan": "^1.10.0",
+    "pg": "^8.5.1",
+    "rowdy-logger": "^1.0.2",
+    "sequelize": "^6.5.0"
+  }
+}
