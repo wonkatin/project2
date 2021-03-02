@@ -66,14 +66,16 @@ Sunday:
 ### RESTful routing chart 
 Method | URL | Functionality | View 
  --- | --- | --- | ---
- GET | /recipes  | search for recipes
- POST | /recipes | save a recipe
- GET | /recipes/:id | show recipe details
- POST | /users | create a user
- GET | /users/:id | show user profile
- POST | /review | add review
- PUT  | /review/:id | update review
- DELETE | /review/:id | delete review
- POST | /comment | add comment to review
- PUT  | /comment/:id | update comment
- DELETE | /comment/:id | delete comment
+ GET | / | view home page | render index.ejs
+ GET | /search  | search for recipes in API | render results to index.ejs
+ GET | /search/:id | show recipe details | redirect to recipes detail view
+ POST | /recipes | save a recipe | 
+ GET | /recipes/:id | show recipe details | 
+ POST | /users | create a user | 
+ GET | /users/:id | show user profile |
+ POST | /review | add review | 
+ PUT  | /review/:id | update review | 
+ DELETE | /review/:id | delete review | 
+ POST | /comment | add comment to review | 
+ PUT  | /comment/:id | update comment | 
+ DELETE | /comment/:id | delete comment | 
