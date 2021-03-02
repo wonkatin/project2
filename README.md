@@ -54,10 +54,17 @@ Saturday:
 Sunday:
 * stretch goals
 ### Wireframes
+#### Homepage ( / )
+![WIREFRAME0](./assets/kitchen_sink_wireframe0.jpg)
+#### Homepage with Search ( / )
 ![WIREFRAME1](./assets/kitchen_sink_wireframe1.jpg)
+#### Homepage with Search while signed in ( / )
 ![WIREFRAME2](./assets/kitchen_sink_wireframe2.jpg)
+#### User Sign up (/users/new)
 ![WIREFRAME3](./assets/kitchen_sink_wireframe3.jpg)
+#### User Login (/users/login)
 ![WIREFRAME4](./assets/kitchen_sink_wireframe4.jpg)
+#### Profile View (/users/:id)
 ![WIREFRAME5](./assets/kitchen_sink_wireframe5.jpg)
 ![WIREFRAME6](./assets/kitchen_sink_wireframe6.jpg)
 ![WIREFRAME7](./assets/kitchen_sink_wireframe7.jpg)
@@ -69,10 +76,11 @@ Method | URL | Functionality | View
  GET | / | view home page | render index.ejs
  GET | /search  | search for recipes in API | render results to index.ejs
  GET | /search/:id | show recipe details | redirect to recipes detail view
+ POST | /users/new | create a user | 
+ GET | /users/login | 
+ GET | /users/:id | show user profile |
  POST | /recipes | save a recipe | 
  GET | /recipes/:id | show recipe details | 
- POST | /users | create a user | 
- GET | /users/:id | show user profile |
  POST | /review | add review | 
  PUT  | /review/:id | update review | 
  DELETE | /review/:id | delete review | 
