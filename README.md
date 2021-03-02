@@ -64,3 +64,16 @@ Sunday:
 ### Database ERDs
 ![ERD](./assets/kitchen_sink.png)
 ### RESTful routing chart 
+Method | URL | Functionality | View 
+ --- | --- | --- | ---
+ GET | /recipes  | search for recipes
+ POST | /recipes | save a recipe
+ GET | /recipes/:id | show recipe details
+ POST | /users | create a user
+ GET | /users/:id | show user profile
+ POST | /review | add review
+ PUT  | /review/:id | update review
+ DELETE | /review/:id | delete review
+ POST | /comment | add comment to review
+ PUT  | /comment/:id | update comment
+ DELETE | /comment/:id | delete comment
