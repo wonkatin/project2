@@ -6,17 +6,19 @@ Kitchen Sink is an app designed to allow users to search for recipes using speci
 * Search for recipes
 * Save recipes with a review 
 * View and/or add recipes other users have tried
+* Add comments to reviews
 ### Stretch Goals
+* Allow users to search based on dietary restrictions and other preferences
 * Allow users to favorite and bookmark recipes 
 * Allow users to limit search results based on the number of ingredients in the ingredient list, to target even more specific recipes
 * Allow users to store their grocery/pantry list in their profile, with ability to add items to search query from this list
 * Alert users when items in pantry list need to be used based on expiration/shelf life
 * Users can auto-populate pantry list based on bar-codes and pictures of reciepts
 ### User Stories
-* As a user, I want to be able to create a profile
 * As a user, I want to be able to search for recipes that include specific ingredients and preferences
+* As a user, I want to be able to create a profile 
 * As a user, I want to save and review recipes that I have tried
-* As a user, I want to be able to see recipes that other people have tried
+* As a user, I want to be able to see recipes that other people have tried and comment on their reviews
 ### APIs
 I plan to use the [Edamam Recipe API](https://developer.edamam.com/edamam-docs-recipe-api) for MVP and the [Shelf Life API](https://github.com/jcomo/shelf-life) for Stretch Goals. 
 ### Daily Sprints
@@ -52,6 +54,13 @@ Saturday:
 Sunday:
 * stretch goals
 ### Wireframes
+![WIREFRAME1](./assets/kitchen_sink_wireframe1.jpg)
+![WIREFRAME2](./assets/kitchen_sink_wireframe2.jpg)
+![WIREFRAME3](./assets/kitchen_sink_wireframe3.jpg)
+![WIREFRAME4](./assets/kitchen_sink_wireframe4.jpg)
+![WIREFRAME5](./assets/kitchen_sink_wireframe5.jpg)
+![WIREFRAME6](./assets/kitchen_sink_wireframe6.jpg)
+![WIREFRAME7](./assets/kitchen_sink_wireframe7.jpg)
 ### Database ERDs
 ![ERD](./assets/kitchen_sink.png)
 ### RESTful routing chart 
