@@ -30,8 +30,10 @@ app.get('/', function(req, res) {
 })
 app.get('/results', async(req, res) => {
     try {
-        const results = await axios.get(`https://api.edamam.com/search?q=${req.query.search}&app_id=${EDAMAM_APP_ID}&app_key=${EDAMAM_APP_KEY}`)
-        console.log(results.data)
+        const search = `${req.query.search1}+${req.query.search2}+${req.query.search3}+${req.query.search4}+${req.query.search2}`
+        // const maxIngr = `&ingr=${req.query.ingr}`
+        const results = await axios.get(`https://api.edamam.com/search?q=${search}&app_id=${EDAMAM_APP_ID}&app_key=${EDAMAM_APP_KEY}`)
+        // console.log(results.data)
         res.render('results', { hits: results.data.hits })
     } catch(error){
         console.log(error)
