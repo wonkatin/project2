@@ -56,9 +56,9 @@ Sunday:
 ### Wireframes
 #### Homepage ( / )
 ![WIREFRAME0](./assets/kitchen_sink_wireframe0.jpg)
-#### Homepage with Search ( / )
+#### Homepage with Search ( /results )
 ![WIREFRAME1](./assets/kitchen_sink_wireframe1.jpg)
-#### Homepage with Search while signed in ( / )
+#### Homepage with Search while signed in ( /results )
 ![WIREFRAME2](./assets/kitchen_sink_wireframe2.jpg)
 #### User Sign up (/users/new)
 ![WIREFRAME3](./assets/kitchen_sink_wireframe3.jpg)

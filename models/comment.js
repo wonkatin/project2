@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       models.comment.belongsToMany(models.user, {through:"review"})
       models.comment.belongsToMany(models.recipe, {through:"review"})
+      models.comment.hasMany(models.comment)
     }
   };
   comment.init({
