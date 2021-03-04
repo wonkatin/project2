@@ -71,7 +71,7 @@ Sunday:
 #### Recipe Details View (/recipes/:id)
 ![WIREFRAME7](./assets/kitchen_sink_wireframe7.jpg)
 ### Database ERDs
-![ERD](./assets/kitchen_sink2.png)
+![ERD](./assets/kitchen_sink.png)
 ### RESTful routing chart 
 Method | URL | Functionality | View 
  --- | --- | --- | ---

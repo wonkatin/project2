@@ -13,7 +13,17 @@
             <input type="submit" value="See More Info">
         </form>
         <form action="/reviews" method="POST">
+            
+            <input type="hidden" name="label" value="<%= hit.recipe.label %>">
             <input type="hidden" name="uri" value="<%= hit.recipe.uri %>">
+            <input type="hidden" name="image" value="<%= hit.recipe.image %>">
+            <input type="hidden" name="source" value="<%= hit.recipe.source %>">
+            <input type="hidden" name="url" value="<%= hit.recipe.url %>">
+            <input type="hidden" name="ingredientLines" value="<%= hit.recipe.ingredientLines %>">
+            <input type="hidden" name="cautions" value="<%= hit.recipe.cautions %>">
+            <input type="hidden" name="dietLabels" value="<%= hit.recipe.dietLabels %>">
+            <input type="hidden" name="healthLabels" value="<%= hit.recipe.healthLabels %>">
+            
             <input type="submit" value="Save">
         </form>
     <% }) %>

@@ -11,13 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.review.hasMany(models.comment)
     }
   };
   review.init({
     userId: DataTypes.INTEGER,
     recipeId: DataTypes.INTEGER,
-    rating: DataTypes.STRING,
+    rating: DataTypes.INTEGER,
     content: DataTypes.TEXT
   }, {
     sequelize,

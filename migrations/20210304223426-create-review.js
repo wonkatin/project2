@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       rating: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       content: {
         type: Sequelize.TEXT
