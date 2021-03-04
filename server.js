@@ -45,6 +45,7 @@ app.use(async (req, res, next) => {
 /* Controllers */
 app.use('/recipes', require('./controllers/recipesControllers'))    
 app.use('/users', require('./controllers/usersControllers'))
+app.use('/reviews', require('./controllers/reviewsControllers'))
 
 
 /* Routes */

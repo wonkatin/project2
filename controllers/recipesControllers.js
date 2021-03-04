@@ -12,7 +12,7 @@ router.get('/results', async(req, res) => {
         const search = `${req.query.search1}+${req.query.search2}+${req.query.search3}+${req.query.search4}+${req.query.search2}`
         // const maxIngr = `&ingr=${req.query.ingr}`
         const results = await axios.get(`https://api.edamam.com/search?q=${search}&app_id=${EDAMAM_APP_ID}&app_key=${EDAMAM_APP_KEY}`)
-        console.log(results.data)
+        // console.log(results.data)
         res.render('recipes/results', { hits: results.data.hits })
     } catch(error){
         console.log(error)
