@@ -54,6 +54,15 @@ router.post('/login', async (req, res) => {
 //Show user profile
 router.get('/profile', (req, res) => {
     res.render('users/profile')
+
+})
+//Create review (save a recipe to DB)
+router.post('/profile', async (req, res) => {
+    try {
+
+    } catch (error) {
+        console.log(error)
+    }
 })
 
 // Logout the user by removing their cookie

@@ -66,7 +66,7 @@ Sunday:
 ![WIREFRAME3](./assets/kitchen_sink_wireframe3.jpg)
 #### User Login (/users/login)
 ![WIREFRAME4](./assets/kitchen_sink_wireframe4.jpg)
-#### Profile View (/users/:id)
+#### Profile View (/users/profile)
 ![WIREFRAME5](./assets/kitchen_sink_wireframe5.jpg)
 #### Recipe Details View (/recipes/:id)
 ![WIREFRAME7](./assets/kitchen_sink_wireframe7.jpg)
