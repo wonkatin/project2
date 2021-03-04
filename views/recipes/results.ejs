@@ -1,0 +1,22 @@
+<%- include('../partials/search.ejs') %>
+<h2>Here are the results, <%= user.username %>! Recipes with Search 1, etc </h4>
+
+<% if (user) { %>
+    <% hits.forEach(hit => { %>
+        <h4><%= hit.recipe.label %></h4>
+        <form action="/recipes/detail" method="GET">
+            <input type="hidden" name="uri" value="<%= hit.recipe.uri %>">
+            <input type="submit" value="See More Info">
+        </form>
+        <form action="" method="POST">
+            <input type="submit" value="Save">
+        </form>
+    <% }) %>
+<% } else { %>
+    <% hits.forEach(hit => { %>
+        <h4><%= hit.recipe.label %></h4>
+        <form action="/recipes/detail" method="GET">
+            <input type="submit" value="See More Info">
+        </form>
+    <% }) %>
+<% } %> 

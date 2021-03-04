@@ -1,7 +1,0 @@
-<%- include('../partials/form.ejs', {
-    action: '/users'
-})%>
-
-<%- include('../partials/form.ejs', {
-    action: '/profile'
-}) %>

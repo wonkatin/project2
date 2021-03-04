@@ -56,6 +56,8 @@ Sunday:
 ### Wireframes
 #### Homepage ( / )
 ![WIREFRAME0](./assets/kitchen_sink_wireframe0.jpg)
+#### Homepage while signed in ( / ) 
+![WIREFRAME0](./assets/kitchen_sink_wireframe6.jpg)
 #### Homepage with Search ( /results )
 ![WIREFRAME1](./assets/kitchen_sink_wireframe1.jpg)
 #### Homepage with Search while signed in ( /results )
@@ -66,8 +68,6 @@ Sunday:
 ![WIREFRAME4](./assets/kitchen_sink_wireframe4.jpg)
 #### Profile View (/users/:id)
 ![WIREFRAME5](./assets/kitchen_sink_wireframe5.jpg)
-#### Profile View (/users/:id)
-![WIREFRAME6](./assets/kitchen_sink_wireframe6.jpg)
 #### Recipe Details View (/recipes/:id)
 ![WIREFRAME7](./assets/kitchen_sink_wireframe7.jpg)
 ### Database ERDs
