@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.user.belongsToMany(models.recipe, {through:"users_recipes"})
+      models.user.hasMany(models.review)
+      models.user.hasOne(models.pantry)
+
     }
   };
   user.init({

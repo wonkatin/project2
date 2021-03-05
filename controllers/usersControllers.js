@@ -52,8 +52,17 @@ router.post('/login', async (req, res) => {
 })
 
 //Show user profile
-router.get('/profile', (req, res) => {
-    res.render('users/profile')
+router.get('/profile', async (req, res) => {
+    try {
+        const user = await db.user.findOne({
+            where: {id: res.locals.user.id},
+            include: db.recipe
+        })
+        console.log(user.dataValues.recipes)
+        res.render('users/profile', { recipes: user.dataValues.recipes })
+    } catch (error) {
+        console.log(error)
+    }
 
 })
 

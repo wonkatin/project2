@@ -15,17 +15,34 @@ const db = require('./models')
 // }
 // test()
 
-async function test() {
-    try {
-        const user = await db.user.findOne({ 
-            where: {
-                id: 4
-            }, 
-            include: [db.recipe, db.review]
-        })
-        console.log(user)
-    } catch (error) {
-        console.log(error)
-    }
-}
-test()
+// async function test() {
+//     try {
+//         const user = await db.user.findOne({ 
+//             where: {
+//                 id: 1
+//             }, 
+//             include: [db.recipe, db.review]
+//         })
+//         console.log(user)
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
+// test()
+// console.log(db)
+// async function test() {
+//     try {
+//         const recipe = await db.recipe.findOne({where: { id: 1 }})
+//         const user = await db.user.findOne({where: {id: 1}})
+//         const review = await db.review.create({
+//             rating: 3,
+//             content: "this sucks",
+//             recipeId: recipe.id,
+//             userId: user.id
+//         })
+//         console.log(user)
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
+// test()

@@ -1,3 +1,21 @@
 <h1><%= recipe.label %></h1>
 <h4><%= recipe.source %></h4>
 <img src="<%=  recipe.image %>" alt="" width=200px>
+<% reviews.forEach(review => { %>
+    <h4><%= review.dataValues.rating %></h4>
+    <h4><%= review.dataValues.content %></h4>
+  <% }) %>
+<form action="/recipes" method="POST">
+            
+    <input type="hidden" name="label" value="<%= recipe.label %>">
+    <input type="hidden" name="uri" value="<%= recipe.uri %>">
+    <input type="hidden" name="image" value="<%= recipe.image %>">
+    <input type="hidden" name="source" value="<%= recipe.source %>">
+    <input type="hidden" name="url" value="<%= recipe.url %>">
+    <input type="hidden" name="ingredientLines" value="<%= recipe.ingredientLines %>">
+    <input type="hidden" name="cautions" value="<%= recipe.cautions %>">
+    <input type="hidden" name="dietLabels" value="<%= recipe.dietLabels %>">
+    <input type="hidden" name="healthLabels" value="<%= recipe.healthLabels %>">
+    
+    <input type="submit" value="Save">
+</form>

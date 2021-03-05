@@ -5,7 +5,10 @@ body {
 header {
     background-color: #b03346;
     height: 40px;
-
+    font-size: 26px;
+    display: flex;
+    flex-direction: row;
+    ;
 }
 .container {
     margin: 30px;
