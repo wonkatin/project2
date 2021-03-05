@@ -26,8 +26,16 @@
 </form>
 
 <form action="/reviews" method="POST">
-  <input type="integer" name="rating">
-  <input type="hidden" name="uri">
+  <input type="number" max="5" min="1" name="rating">
+  <input type="hidden" name="label" value="<%= recipe.label %>">
+  <input type="hidden" name="uri" value="<%= recipe.uri %>">
+  <input type="hidden" name="image" value="<%= recipe.image %>">
+  <input type="hidden" name="source" value="<%= recipe.source %>">
+  <input type="hidden" name="url" value="<%= recipe.url %>">
+  <input type="hidden" name="ingredientLines" value="<%= recipe.ingredientLines %>">
+  <input type="hidden" name="cautions" value="<%= recipe.cautions %>">
+  <input type="hidden" name="dietLabels" value="<%= recipe.dietLabels %>">
+  <input type="hidden" name="healthLabels" value="<%= recipe.healthLabels %>">
   <input type="text" name="content">
   <input type="submit" value="Add Review">
 </form>
