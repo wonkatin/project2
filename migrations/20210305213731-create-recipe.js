@@ -9,31 +9,31 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       label: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       uri: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       image: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       source: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       url: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       ingredientLines: {
         type: Sequelize.TEXT
       },
       cautions: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       dietLabels: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       healthLabels: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,

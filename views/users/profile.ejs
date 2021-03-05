@@ -5,5 +5,12 @@
   <h2>Saved Recipes:</h2>
 <% recipes.forEach(recipe => { %>
   <h4><%= recipe.dataValues.label %></h4>
+  <form action="/recipes/detail" method="GET">
+    <input type="hidden" name="uri" value="<%= recipe.dataValues.uri %>">
+    <input type="submit" value="See More Info">
+  </form>
+  <form action="">
+    
+  </form>
 <% }) %>
  

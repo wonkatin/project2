@@ -3,15 +3,16 @@ const db = require('../models')
 
 router.post('/', async (req, res) => {
     try {
-        const recipe = 
-        const user = 
+        // console.log(req.body)
+        const recipe = await db.recipe.findOne({where: { uri: req.body.uri }})
+        const user = res.locals.user
         const newReview = await db.review.create({
             userId: user.id,
             recipeId: recipe.id,
-            rating: , 
-            content: ""
+            rating: req.body.rating, 
+            content: req.body.content
         })
-
+    res.render('recipes/detail', { recipe: req.body.uri })
     } catch (error) {
         console.log(error)
     }

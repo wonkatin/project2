@@ -28,8 +28,14 @@ router.get('/detail', async (req, res) => {
         let uri = encodeURIComponent(req.query.uri)
         // console.log(uri)
         const deets = await axios.get(`https://api.edamam.com/search?r=${uri}&app_id=${EDAMAM_APP_ID}&app_key=${EDAMAM_APP_KEY}`)
-        console.log(reviews.dataValues.reviews)
-        res.render('recipes/detail', { recipe: deets.data[0], reviews: reviews.dataValues.reviews })
+        // console.log(reviews.dataValues.reviews)
+        // console.log(deets)
+        if (reviews) {
+            res.render('recipes/detail', { recipe: deets.data[0], reviews: reviews.dataValues.reviews })
+
+        } else {
+            res.render('recipes/detail', { recipe: deets.data[0], reviews })
+        }
     } catch (error) {
         console.log(error)
     }
