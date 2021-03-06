@@ -1,6 +1,6 @@
 <%- include('../partials/search.ejs') %>
 <% if (user) { %>
-    <h2>Here are the results, <%= user.username %>! Recipes with Search 1, etc </h4>
+    <h2>Here are the results, <%= user.username %>! Recipes with <%= search %> </h4>
 <% } else { %>
     <h2>Here are the results</h2>
 <% } %> 
@@ -25,6 +25,7 @@
             <input type="hidden" name="healthLabels" value="<%= hit.recipe.healthLabels %>">
             
             <input type="submit" value="Save">
+            
         </form>
     <% }) %>
 <% } else { %>

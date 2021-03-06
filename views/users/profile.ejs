@@ -9,8 +9,9 @@
     <input type="hidden" name="uri" value="<%= recipe.dataValues.uri %>">
     <input type="submit" value="See More Info">
   </form>
-  <form action="">
-    
+  <form action="/recipes/<%= recipe.id %>>/?_method=DELETE" method="POST">
+    <input type="hidden" name="id" value="<%= recipe.id %>">
+    <input type="submit" value="Remove">
   </form>
 <% }) %>
  

@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const db = require('../models')
-
+//create review
 router.post('/', async (req, res) => {
     try {
         // console.log(req.body)
@@ -34,7 +34,7 @@ router.post('/', async (req, res) => {
         console.log(error)
     }
 })
-
+//delete review
 router.delete('/:id', async(req, res) => {
     try {
         const review = await db.review.findByPk(req.params.id)
@@ -45,6 +45,7 @@ router.delete('/:id', async(req, res) => {
         // console.log(`🔥 🔥 🔥  ${recipeReviews}`)  
         // console.log(`😇 😇 😇   ${recipe}`)   
         // console.log(`🍓 🍓 🍓   ${review}`) 
+        //hold the reviews I need to keep in an array like hug
         recipeReviews.forEach(recipeReview => {
             if (recipeReview.id !== review.id) {
                 console.log(recipeReview)

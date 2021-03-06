@@ -1,0 +1,10 @@
+   <% if(rev.id === review.dataValues.userId) { %>
+      <h4>Username: <%= rev.username %> </h4>
+   <% } %>
+
+
+     <% reviewUsers.forEach(rev => { %>
+   <% if(rev.id === review.dataValues.userId) { %>
+      <h4>Username: <%= rev.username %> </h4>
+   <% } %>
+  <% }) %>
