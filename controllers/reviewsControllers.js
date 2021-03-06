@@ -28,7 +28,32 @@ router.post('/', async (req, res) => {
             rating: req.body.rating, 
             content: req.body.content
         })
-    res.render('recipes/detail', { recipe: recipe, reviews: recipe.dataValues.reviews })
+        const reviews = await recipe.getReviews()
+    res.render('recipes/detail', { recipe: recipe, reviews: reviews })
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+router.delete('/:id', async(req, res) => {
+    try {
+        const review = await db.review.findByPk(req.params.id)
+        const recipe = await review.getRecipe()
+        const recipeReviews = await recipe.getReviews()
+        let newRecipeReviews = []
+        // console.log(recipeReviews)
+        // console.log(`🔥 🔥 🔥  ${recipeReviews}`)  
+        // console.log(`😇 😇 😇   ${recipe}`)   
+        // console.log(`🍓 🍓 🍓   ${review}`) 
+        recipeReviews.forEach(recipeReview => {
+            if (recipeReview.id !== review.id) {
+                console.log(recipeReview)
+                console.log(review)
+                newRecipeReviews.push(recipeReview)
+            }
+        })
+        await review.destroy()
+        res.render(`recipes/detail`, { recipe: recipe, reviews: newRecipeReviews })
     } catch (error) {
         console.log(error)
     }

@@ -58,7 +58,7 @@ router.get('/profile', async (req, res) => {
             where: {id: res.locals.user.id},
             include: db.recipe
         })
-        console.log(user.dataValues.recipes)
+        // console.log(user.dataValues.recipes)
         res.render('users/profile', { recipes: user.dataValues.recipes })
     } catch (error) {
         console.log(error)
