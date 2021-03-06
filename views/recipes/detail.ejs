@@ -6,7 +6,7 @@
   <% reviews.forEach(review => { %>
       <h4>Rating: <%= review.dataValues.rating %></h4>
       <h4>Review: <%= review.dataValues.content %></h4>
-      <h4>UserId: <%= review.dataValues.userId %> </h4>
+      <h4>Username: <%= review.dataValues.userId %> </h4>
       <% if(user.id === review.dataValues.userId) { %>
         <form action="/reviews/<%= review.id %>/?_method=DELETE" method="POST">
           <input type="hidden" name="uri" value="<%= recipe.uri %>">
