@@ -28,3 +28,12 @@ router.delete('/:id', async(req, res) => {
         console.log(error)
     }
 })
+
+
+<% if (more) { %>
+    <p>showing <%= from %> to <%= to %> results</p>
+    <form action="/recipes/results" method="GET">
+        <input type="submit" value="Show More Results">
+    </form>
+
+<% } %>

@@ -1,8 +1,14 @@
 <%- include('../partials/search.ejs') %>
 <% if (user) { %>
-    <h2>Here are the results, <%= user.username %>! Recipes with <%= search %> </h4>
+    <h2>Here are the results, <%= user.username %>! There are <%= count %> recipes with <%= search %> </h2>
+        <% if (count > 100) { %>
+            <p>try adding items or limiting maximum ingredients to find fewer results</p>
+        <% } %>
 <% } else { %>
-    <h2>Here are the results</h2>
+    <h2>Here are the results! There are <%= count %> recipes with <%= search %></h2>
+    <% if (count > 100) { %>
+        <p>try adding items or limiting maximum ingredients to show fewer results</p>
+    <% } %>
 <% } %> 
 
 <% if (user) { %>
@@ -12,7 +18,8 @@
             <input type="hidden" name="uri" value="<%= hit.recipe.uri %>">
             <input type="submit" value="See More Info">
         </form>
-        <form action="/recipes" method="POST">
+
+        <!-- <form action="/recipes" method="POST">
             
             <input type="hidden" name="label" value="<%= hit.recipe.label %>">
             <input type="hidden" name="uri" value="<%= hit.recipe.uri %>">
@@ -24,7 +31,7 @@
             <input type="hidden" name="dietLabels" value="<%= hit.recipe.dietLabels %>">
             <input type="hidden" name="healthLabels" value="<%= hit.recipe.healthLabels %>">
             
-        </form>
+        </form> -->
     <% }) %>
 <% } else { %>
     <% hits.forEach(hit => { %>
@@ -35,3 +42,11 @@
         </form>
     <% }) %>
 <% } %> 
+
+<% if (more) { %>
+    <p>showing <%= from %> to <%= to %> results</p>
+    <form action="/recipes/results" method="GET">
+        <input type="submit" value="Show More Results">
+    </form>
+
+<% } %>

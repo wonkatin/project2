@@ -1,63 +1,67 @@
 <h1><%= recipe.label %></h1>
 <h4><%= recipe.source %></h4>
 <img src="<%= recipe.image %>" alt="" width=200px>
-
-<% if(reviews) { %>
-  <% reviews.forEach(review => { %>
-      <h4>Username: <%= review.dataValues.user.username %> </h4>
-      <% if(user.id === review.dataValues.userId) { %>
-        <p>update your review:</p>
-        <form action="/reviews/<%= review.id %>/?_method=PUT" method="POST">
-          <input type="hidden" name="uri" value="<%= recipe.uri %>">
-          <input type="number" placeholder="<%= review.dataValues.rating %>" max="5" min="1" name="rating">
-          <input type="text" placeholder="<%= review.dataValues.content %>" name="content">
-          <input type="submit" value="Update Review">
-        </form>
-
-        <form action="/reviews/<%= review.id %>/?_method=DELETE" method="POST">
-          <input type="hidden" name="uri" value="<%= recipe.uri %>">
-          <input type="submit" value="Delete Review">
-        </form>
-      <% } else { %>
-        <h4>Rating: <%= review.dataValues.rating %></h4>
-        <h4>Review: <%= review.dataValues.content %></h4>
-      <% } %>
-  <% }) %>
-<% } %>
+<% if (user) { %>
+  <% if(reviews) { %>
+    <% reviews.forEach(review => { %>
+        <h4>Username: <%= review.dataValues.user.username %> </h4>
+        <% if(user.id === review.dataValues.userId) { %>
+          <p>update your review:</p>
+          <form action="/reviews/<%= review.id %>/?_method=PUT" method="POST">
+            <input type="hidden" name="uri" value="<%= recipe.uri %>">
+            <input type="number" placeholder="<%= review.dataValues.rating %>" max="5" min="1" name="rating">
+            <input type="text" placeholder="<%= review.dataValues.content %>" name="content">
+            <input type="submit" value="Update Review">
+          </form>
   
-<form action="/recipes" method="POST">
-            
-  <input type="hidden" name="label" value="<%= recipe.label %>">
-  <input type="hidden" name="uri" value="<%= recipe.uri %>">
-  <input type="hidden" name="image" value="<%= recipe.image %>">
-  <input type="hidden" name="source" value="<%= recipe.source %>">
-  <input type="hidden" name="url" value="<%= recipe.url %>">
-  <input type="hidden" name="ingredientLines" value="<%= recipe.ingredientLines %>">
-  <input type="hidden" name="cautions" value="<%= recipe.cautions %>">
-  <input type="hidden" name="dietLabels" value="<%= recipe.dietLabels %>">
-  <input type="hidden" name="healthLabels" value="<%= recipe.healthLabels %>">
-  
-  <% let recipeLovers = [] %>
-  <% users.forEach(recipeUser => { %>
-  <% recipeLovers.push(recipeUser.id) %>
-  <% }) %>
-  <% if(!recipeLovers.includes(user.dataValues.id)) { %>
-    <input type="submit" value="Save">
+          <form action="/reviews/<%= review.id %>/?_method=DELETE" method="POST">
+            <input type="hidden" name="uri" value="<%= recipe.uri %>">
+            <input type="submit" value="Delete Review">
+          </form>
+        <% } else { %>
+          <h4>Rating: <%= review.dataValues.rating %></h4>
+          <h4>Review: <%= review.dataValues.content %></h4>
+        <% } %>
+    <% }) %>
   <% } %>
-</form>
+    
+  <form action="/recipes" method="POST">
+              
+    <input type="hidden" name="label" value="<%= recipe.label %>">
+    <input type="hidden" name="uri" value="<%= recipe.uri %>">
+    <input type="hidden" name="image" value="<%= recipe.image %>">
+    <input type="hidden" name="source" value="<%= recipe.source %>">
+    <input type="hidden" name="url" value="<%= recipe.url %>">
+    <input type="hidden" name="ingredientLines" value="<%= recipe.ingredientLines %>">
+    <input type="hidden" name="cautions" value="<%= recipe.cautions %>">
+    <input type="hidden" name="dietLabels" value="<%= recipe.dietLabels %>">
+    <input type="hidden" name="healthLabels" value="<%= recipe.healthLabels %>">
+    
+    <% let recipeLovers = [] %>
+    <% users.forEach(recipeUser => { %>
+    <% recipeLovers.push(recipeUser.id) %>
+    <% }) %>
+    <% if(!recipeLovers.includes(user.dataValues.id)) { %>
+      <input type="submit" value="Save">
+    <% } %>
+  </form>
+  
+  <form action="/reviews" method="POST">
+    <label for="rating">Rate this Recipe:</label>
+    <input type="number" max="5" min="1" name="rating" id="rating">
+    <input type="hidden" name="label" value="<%= recipe.label %>">
+    <input type="hidden" name="uri" value="<%= recipe.uri %>">
+    <input type="hidden" name="image" value="<%= recipe.image %>">
+    <input type="hidden" name="source" value="<%= recipe.source %>">
+    <input type="hidden" name="url" value="<%= recipe.url %>">
+    <input type="hidden" name="ingredientLines" value="<%= recipe.ingredientLines %>">
+    <input type="hidden" name="cautions" value="<%= recipe.cautions %>">
+    <input type="hidden" name="dietLabels" value="<%= recipe.dietLabels %>">
+    <input type="hidden" name="healthLabels" value="<%= recipe.healthLabels %>">
+    <input type="text" placeholder="leave your review here" name="content">
+    <input type="submit" value="Add Review">
+  </form>
 
-<form action="/reviews" method="POST">
-  <label for="rating">Rate this Recipe:</label>
-  <input type="number" max="5" min="1" name="rating" id="rating">
-  <input type="hidden" name="label" value="<%= recipe.label %>">
-  <input type="hidden" name="uri" value="<%= recipe.uri %>">
-  <input type="hidden" name="image" value="<%= recipe.image %>">
-  <input type="hidden" name="source" value="<%= recipe.source %>">
-  <input type="hidden" name="url" value="<%= recipe.url %>">
-  <input type="hidden" name="ingredientLines" value="<%= recipe.ingredientLines %>">
-  <input type="hidden" name="cautions" value="<%= recipe.cautions %>">
-  <input type="hidden" name="dietLabels" value="<%= recipe.dietLabels %>">
-  <input type="hidden" name="healthLabels" value="<%= recipe.healthLabels %>">
-  <input type="text" placeholder="leave your review here" name="content">
-  <input type="submit" value="Add Review">
-</form>
+<% } else { %>
+
+<% } %> 

@@ -12,7 +12,7 @@
       <input type="submit" value="See More Info">
     </form>
 
-    <form action="/recipes" method="POST">
+    <!-- <form action="/recipes" method="POST">
           
       <input type="hidden" name="label" value="<%= recipe.dataValues.label %>">
       <input type="hidden" name="uri" value="<%= recipe.dataValues.uri %>">
@@ -25,8 +25,15 @@
       <input type="hidden" name="healthLabels" value="<%= recipe.dataValues.healthLabels %>">
         
     </form>
-    
+     -->
     <% }) %>
 <% } else { %>
+  <% recipes.forEach(recipe => { %>
+    <h4><%= recipe.dataValues.label %></h4>
+    <form action="/recipes/detail" method="GET">
+      <input type="hidden" name="uri" value="<%= recipe.dataValues.uri %>">
+      <input type="submit" value="See More Info">
+    </form>
+  <% }) %>
 
 <% } %> 

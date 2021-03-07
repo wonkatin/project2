@@ -11,11 +11,15 @@ const EDAMAM_APP_KEY = process.env.EDAMAM_APP_KEY
 router.get('/results', async(req, res) => {
     try {
         const search = `${req.query.search1}+${req.query.search2}+${req.query.search3}+${req.query.search4}+${req.query.search5}`
-        const maxIngr = `${req.query.ingr}`
+        if (req.query.ingr) {
+            maxIngr = `${req.query.ingr}`
+        } else {
+            maxIngr = 30
+        }
+        // console.log(maxIngr)
         const results = await axios.get(`https://api.edamam.com/search?q=${search}&app_id=${EDAMAM_APP_ID}&app_key=${EDAMAM_APP_KEY}&ingr=${maxIngr}`)
-        // console.log(results.data)
-        const searchTerms = search.split("+").join(" ")
-        res.render('recipes/results', { hits: results.data.hits, search: searchTerms })
+        console.log(results) 
+        res.render('recipes/results', { hits: results.data.hits, search: results.data.q, count: results.data.count, more: results.data.more, from: results.data.from, to: results.data.to })
     } catch(error){
         console.log(error)
     }
@@ -88,11 +92,11 @@ router.delete('/:id', async(req, res) => {
                 id: req.body.id
             }
         })
-        console.log(recipe)
+        // console.log(recipe)
         const user = await db.user.findOne({
             where: {id: res.locals.user.id}
         })
-        console.log(user)
+        // console.log(user)
         await user.removeRecipe(recipe)
         res.redirect('/users/profile')
     } catch (error) {

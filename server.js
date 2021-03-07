@@ -54,7 +54,7 @@ app.get('/', async (req, res) => {
     const recipes = await db.recipe.findAll({
         include: db.user
     })
-        console.log(recipes)
+        // console.log(recipes)
     res.render('index', {
         recipes: recipes, 
         // users: recipeUsers
