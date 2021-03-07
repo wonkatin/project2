@@ -49,7 +49,7 @@ app.use('/reviews', require('./controllers/reviewsControllers'))
 
 
 /* Routes */
-//Show the homepage
+//Show the homepage, view all saved recipes, woot
 app.get('/', async (req, res) => {
     const recipes = await db.recipe.findAll({
         include: db.user

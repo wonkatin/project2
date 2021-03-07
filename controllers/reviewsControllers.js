@@ -40,6 +40,20 @@ router.post('/', async (req, res) => {
         console.log(error)
     }
 })
+//update review
+router.put('/:id', async (req, res) => {
+    try {
+        const review = await db.review.findByPk(req.params.id)
+        // const recipe = await review.getRecipe()
+        await review.update({
+            rating: req.body.rating,
+            content: req.body.content
+        })
+        res.render('recipes/detail')
+    } catch (error) {
+        console.log(error)
+    }
+})
 //delete review
 router.delete('/:id', async(req, res) => {
     try {
@@ -62,7 +76,7 @@ router.delete('/:id', async(req, res) => {
             }
         })
         await review.destroy()
-        res.render(`recipes/detail`, { 
+        res.render('recipes/detail', { 
             recipe: recipe, 
             reviews: newRecipeReviews,
             users: recipeUsers 
