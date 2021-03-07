@@ -28,14 +28,14 @@ router.post('/', async (req, res) => {
             rating: req.body.rating, 
             content: req.body.content
         })
-        let recipeUsers = []
-        const reviews = await recipe.getReviews({include: db.user})
-        recipeUsers = await recipe.getReviews({include: db.user})
-    res.render('recipes/detail', { 
-        recipe: recipe, 
-        reviews: reviews, 
-        users: recipeUsers 
-    })
+        // let recipeUsers = []
+        const recipeInfo = await recipe.getReviews({include: db.user})
+        // recipeUsers = await recipe.getReviews({include: db.user})
+        res.render('recipes/detail', { 
+            recipe: recipe, 
+            reviews: recipeInfo, 
+            users: recipeInfo 
+        })
     } catch (error) {
         console.log(error)
     }
@@ -46,7 +46,6 @@ router.put('/:id', async (req, res) => {
         const review = await db.review.findByPk(req.params.id)
         // const recipe = await review.getRecipe()
         const recipe = await review.getRecipe()
-        
         await review.update({
             rating: req.body.rating,
             content: req.body.content
@@ -66,27 +65,12 @@ router.delete('/:id', async(req, res) => {
     try {
         const review = await db.review.findByPk(req.params.id)
         const recipe = await review.getRecipe()
-        let recipeUsers = []
-        let newRecipeReviews = []
-        const recipeReviews = await recipe.getReviews({include: db.user})
-        recipeUsers = await recipe.getReviews({include: db.user})
-        // console.log(recipeReviews)
-        // console.log(`🔥 🔥 🔥  ${recipeReviews}`)  
-        // console.log(`😇 😇 😇   ${recipe}`)   
-        // console.log(`🍓 🍓 🍓   ${review}`) 
-        //hold the reviews I need to keep in an array like hug
-        recipeReviews.forEach(recipeReview => {
-            if (recipeReview.id !== review.id) {
-                // console.log(recipeReview)
-                // console.log(review)
-                newRecipeReviews.push(recipeReview)
-            }
-        })
         await review.destroy()
+        const recipeInfo = await recipe.getReviews({include: db.user})
         res.render('recipes/detail', { 
             recipe: recipe, 
-            reviews: newRecipeReviews,
-            users: recipeUsers 
+            reviews: recipeInfo,
+            users: recipeInfo 
          })
     } catch (error) {
         console.log(error)
