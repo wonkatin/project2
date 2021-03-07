@@ -11,8 +11,8 @@ const EDAMAM_APP_KEY = process.env.EDAMAM_APP_KEY
 router.get('/results', async(req, res) => {
     try {
         const search = `${req.query.search1}+${req.query.search2}+${req.query.search3}+${req.query.search4}+${req.query.search5}`
-        // const maxIngr = `&ingr=${req.query.ingr}`
-        const results = await axios.get(`https://api.edamam.com/search?q=${search}&app_id=${EDAMAM_APP_ID}&app_key=${EDAMAM_APP_KEY}`)
+        const maxIngr = `${req.query.ingr}`
+        const results = await axios.get(`https://api.edamam.com/search?q=${search}&app_id=${EDAMAM_APP_ID}&app_key=${EDAMAM_APP_KEY}&ingr=${maxIngr}`)
         // console.log(results.data)
         const searchTerms = search.split("+").join(" ")
         res.render('recipes/results', { hits: results.data.hits, search: searchTerms })
