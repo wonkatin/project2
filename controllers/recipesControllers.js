@@ -20,6 +20,7 @@ router.get('/results', async(req, res) => {
         console.log(error)
     }
 })
+
 //show one recipe detail page 
 router.get('/detail', async (req, res) => {
     try {
@@ -30,17 +31,21 @@ router.get('/detail', async (req, res) => {
                 include: db.user
             }]
         })
-        console.log(recipe)
+        
         let uri = encodeURIComponent(req.query.uri)
         const deets = await axios.get(`https://api.edamam.com/search?r=${uri}&app_id=${EDAMAM_APP_ID}&app_key=${EDAMAM_APP_KEY}`)
         let reviews = null 
+        let recipeUsers = []
         if (recipe) {
             reviews = recipe.reviews
+            recipeUsers = await recipe.getUsers({ raw: true })
         }
-        // console.log(reviews)
+        
+        console.log(recipeUsers)
         res.render('recipes/detail', { 
             recipe: deets.data[0], 
-            reviews: reviews
+            reviews: reviews,
+            users: recipeUsers
         })
        
     } catch (error) {
@@ -85,30 +90,14 @@ router.delete('/:id', async(req, res) => {
         })
         console.log(recipe)
         const user = await db.user.findOne({
-            where: {id: res.locals.user.id},
-            // include: db.recipe
+            where: {id: res.locals.user.id}
         })
         console.log(user)
-        // await recipe.destroy()
-        // res.locals.user.recipe.destroy()
         await user.removeRecipe(recipe)
         res.redirect('/users/profile')
     } catch (error) {
         console.log(error)
     }
 })
-// router.delete('/:id', async(req, res) => {
-//     try {
-//         const recipe = await db.recipe.findOne({
-//             where: {
-//                 id: req.body.id
-//             }
-//         })
-//         console.log(recipe)
-//         // await recipe.destroy()
-//         res.redirect('/users/profile')
-//     } catch (error) {
-//         console.log(error)
-//     }
-// })
+
 module.exports = router

@@ -50,8 +50,15 @@ app.use('/reviews', require('./controllers/reviewsControllers'))
 
 /* Routes */
 //Show the homepage
-app.get('/', function(req, res) {
-    res.render('index')
+app.get('/', async (req, res) => {
+    const recipes = await db.recipe.findAll({
+        include: db.user
+    })
+        console.log(recipes)
+    res.render('index', {
+        recipes: recipes, 
+        // users: recipeUsers
+    })
 })
 
 

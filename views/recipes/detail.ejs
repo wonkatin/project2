@@ -28,9 +28,14 @@
   <input type="hidden" name="dietLabels" value="<%= recipe.dietLabels %>">
   <input type="hidden" name="healthLabels" value="<%= recipe.healthLabels %>">
   
-  
-  <input type="submit" value="Save">
-  
+  <% let recipeLovers = [] %>
+  <% users.forEach(recipeUser => { %>
+  <% recipeLovers.push(recipeUser.id) %>
+  <% }) %>
+  <% console.log(recipeLovers) %>   
+  <% if(!recipeLovers.includes(user.dataValues.id)) { %>
+    <input type="submit" value="Save">
+  <% } %>
 </form>
 
 <form action="/reviews" method="POST">

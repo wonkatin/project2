@@ -66,6 +66,8 @@ router.get('/profile', async (req, res) => {
 
 })
 
+
+
 // Logout the user by removing their cookie
 router.get('/logout', (req, res) => {
     res.clearCookie('userId')
