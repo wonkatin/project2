@@ -25,29 +25,22 @@ router.get('/detail', async (req, res) => {
     try {
         const recipe = await db.recipe.findOne({
             where: {uri: req.query.uri},
-            include: [{model: db.review}, {model: db.user}]
+            include: [{
+                model: db.review, 
+                include: db.user
+            }]
         })
-        // console.log(recipe.dataValues.users)
+        console.log(recipe)
         let uri = encodeURIComponent(req.query.uri)
         const deets = await axios.get(`https://api.edamam.com/search?r=${uri}&app_id=${EDAMAM_APP_ID}&app_key=${EDAMAM_APP_KEY}`)
-        // const username = recipe.dataValues.users
         let reviews = null 
         if (recipe) {
             reviews = recipe.reviews
         }
-        // console.log(reviews[0])
-        // const recipeReviews = await recipe.getReviews({
-        //     include: [db.user]
-        // })
-        // const reviewUsers = recipeReviews.map(rev => {
-        //     return rev.dataValues.user
-        // })
-        // const uniqueReviewUser = [...new Set(reviewUsers)]
-        // console.log(reviewUsers)
+        // console.log(reviews)
         res.render('recipes/detail', { 
             recipe: deets.data[0], 
-            reviews: reviews,
-            // reviewUsers: uniqueReviewUser
+            reviews: reviews
         })
        
     } catch (error) {

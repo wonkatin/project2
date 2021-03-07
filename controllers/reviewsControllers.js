@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
             rating: req.body.rating, 
             content: req.body.content
         })
-        const reviews = await recipe.getReviews()
+        const reviews = await recipe.getReviews({include: db.user})
     res.render('recipes/detail', { recipe: recipe, reviews: reviews })
     } catch (error) {
         console.log(error)
@@ -39,7 +39,7 @@ router.delete('/:id', async(req, res) => {
     try {
         const review = await db.review.findByPk(req.params.id)
         const recipe = await review.getRecipe()
-        const recipeReviews = await recipe.getReviews()
+        const recipeReviews = await recipe.getReviews({include: db.user})
         let newRecipeReviews = []
         // console.log(recipeReviews)
         // console.log(`🔥 🔥 🔥  ${recipeReviews}`)  
