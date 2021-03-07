@@ -45,11 +45,18 @@ router.put('/:id', async (req, res) => {
     try {
         const review = await db.review.findByPk(req.params.id)
         // const recipe = await review.getRecipe()
+        const recipe = await review.getRecipe()
+        
         await review.update({
             rating: req.body.rating,
             content: req.body.content
         })
-        res.render('recipes/detail')
+        const recipeInfo = await recipe.getReviews({include: db.user})
+        res.render('recipes/detail', {
+            recipe: recipe, 
+            reviews: recipeInfo,
+            users: recipeInfo
+        })
     } catch (error) {
         console.log(error)
     }
@@ -70,8 +77,8 @@ router.delete('/:id', async(req, res) => {
         //hold the reviews I need to keep in an array like hug
         recipeReviews.forEach(recipeReview => {
             if (recipeReview.id !== review.id) {
-                console.log(recipeReview)
-                console.log(review)
+                // console.log(recipeReview)
+                // console.log(review)
                 newRecipeReviews.push(recipeReview)
             }
         })

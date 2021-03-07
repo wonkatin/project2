@@ -41,7 +41,7 @@ router.get('/detail', async (req, res) => {
             recipeUsers = await recipe.getUsers({ raw: true })
         }
         
-        console.log(recipeUsers)
+        // console.log(recipeUsers)
         res.render('recipes/detail', { 
             recipe: deets.data[0], 
             reviews: reviews,
