@@ -4,13 +4,13 @@ Kitchen Sink is an app designed to allow users to search for recipes using speci
 ### MVP Goals
 * Create a profile
 * Search for recipes
-* Save recipes with a review 
+* Save recipes 
+* Leave a review on a recipe
 * View and/or add recipes other users have tried
-* Add comments to reviews
 ### Stretch Goals
+* Allow users to limit search results based on the number of ingredients in the ingredient list, to target even more specific recipes
 * Allow users to search based on dietary restrictions and other preferences
 * Allow users to favorite and bookmark recipes 
-* Allow users to limit search results based on the number of ingredients in the ingredient list, to target even more specific recipes
 * Allow users to store their grocery/pantry list in their profile, with ability to add items to search query from this list
 * Alert users when items in pantry list need to be used based on expiration/shelf life
 * Users can auto-populate pantry list based on bar-codes and pictures of reciepts
@@ -18,7 +18,7 @@ Kitchen Sink is an app designed to allow users to search for recipes using speci
 * As a user, I want to be able to search for recipes that include specific ingredients and preferences
 * As a user, I want to be able to create a profile 
 * As a user, I want to save and review recipes that I have tried
-* As a user, I want to be able to see recipes that other people have tried and comment on their reviews
+* As a user, I want to be able to see other users' reviews of recipes 
 ### APIs
 I plan to use the [Edamam Recipe API](https://developer.edamam.com/edamam-docs-recipe-api) for MVP and the [Shelf Life API](https://github.com/jcomo/shelf-life) for Stretch Goals. 
 ### Daily Sprints
@@ -74,18 +74,18 @@ Sunday:
 ![ERD](./assets/kitchen_sink.png)
 ### RESTful routing chart 
 Method | URL | Functionality | View 
- --- | --- | --- | ---
- GET | / | view home page | render index.ejs
- GET | /search  | search for recipes in API | render results to index.ejs
- GET | /search/:id | show recipe details | redirect to recipes detail view
- POST | /users/new | create a user | 
- GET | /users/login | 
- GET | /users/:id | show user profile |
- POST | /recipes | save a recipe | 
- GET | /recipes/:id | show recipe details | 
- POST | /review | add review | 
- PUT  | /review/:id | update review | 
- DELETE | /review/:id | delete review | 
- POST | /comment | add comment to review | 
- PUT  | /comment/:id | update comment | 
- DELETE | /comment/:id | delete comment | 
+--- | --- | --- | ---
+GET | / | view home page show all db recipes | renders index.ejs
+GET | /users/new |  display signup page | renders users/new.ejs
+POST| /users/new |  create new user | redirects to users/profile.ejs
+GET | /users/login | display login page | renders users/login.ejs
+POST| /users/login | log in as user | redirects to users/profile.ejs
+GET | /users/profile | show user's profile | renders users/profile.ejs
+GET | /users/logout | log the user out and clear cookie | redirects to index.ejs
+GET | /recipes/results | show search results | renders recipes/results.ejs
+GET | /recipes/detail | show recipe details | renders recipes/detail.ejs
+POST | /recipes | save recipe to user's profile | redirects to users/profile.ejs
+DELETE | /recipes/:id | delete recipe from user's profile | redirects to users/profile.ejs
+POST | /reviews | create review | renders recipes/detail.ejs
+PUT | /reviews/:id | update review | renders recipes/detail.ejs
+DELETE | /reviews/:id | delete review | renders recipes/detail.ejs
