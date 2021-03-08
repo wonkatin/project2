@@ -1,39 +1,26 @@
-<%- include('./partials/search.ejs') %>
-<% if (user) { %>
-    <h4>Hello, <%= user.username %>!</h4>
-  <% } %>
-<h4>"POPULAR" RECIPES</h4>
-
-<% if (user) { %>
-  <% recipes.forEach(recipe => { %>
-    <h4><%= recipe.dataValues.label %></h4>
-    <form action="/recipes/detail" method="GET">
-      <input type="hidden" name="uri" value="<%= recipe.dataValues.uri %>">
-      <input type="submit" value="See More Info">
-    </form>
-
-    <!-- <form action="/recipes" method="POST">
+<div class="container2">
+  <div class="search-side">
+    <%- include('./partials/search.ejs') %>
+  </div>
+  
+  <div class="recipelist">
+    <h2>"POPULAR" RECIPES</h2>
+    <% recipes.forEach(recipe => { %>
+      
+      <div class="recipecard">
+          <div class="recipe1">
+            <h3><%= recipe.dataValues.label %> </h3>
+          </div>
           
-      <input type="hidden" name="label" value="<%= recipe.dataValues.label %>">
-      <input type="hidden" name="uri" value="<%= recipe.dataValues.uri %>">
-      <input type="hidden" name="image" value="<%= recipe.dataValues.image %>">
-      <input type="hidden" name="source" value="<%= recipe.dataValues.source %>">
-      <input type="hidden" name="url" value="<%= recipe.dataValues.url %>">
-      <input type="hidden" name="ingredientLines" value="<%= recipe.dataValues.ingredientLines %>">
-      <input type="hidden" name="cautions" value="<%= recipe.dataValues.cautions %>">
-      <input type="hidden" name="dietLabels" value="<%= recipe.dataValues.dietLabels %>">
-      <input type="hidden" name="healthLabels" value="<%= recipe.dataValues.healthLabels %>">
-        
-    </form>
-     -->
+          <div class="recipe2">
+            <h4>from "<%= recipe.dataValues.source %>"</h4>
+            <form class="seemore" action="/recipes/detail" method="GET">
+              <input type="hidden" name="uri" value="<%= recipe.dataValues.uri %>">
+              <input class="seemoreinfo" type="submit" value="See More Info">
+            </form>
+          </div>
+      </div>
+  
     <% }) %>
-<% } else { %>
-  <% recipes.forEach(recipe => { %>
-    <h4><%= recipe.dataValues.label %></h4>
-    <form action="/recipes/detail" method="GET">
-      <input type="hidden" name="uri" value="<%= recipe.dataValues.uri %>">
-      <input type="submit" value="See More Info">
-    </form>
-  <% }) %>
-
-<% } %> 
+  </div>
+</div>

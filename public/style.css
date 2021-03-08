@@ -2,14 +2,114 @@ body {
     background-color: #fff1cc;
     margin: 0;
 }
+h1, h2, h3, h4 {
+    margin: 0;
+}
 header {
-    background-color: #b03346;
-    height: 40px;
-    font-size: 26px;
+    background-color: #b06933;
+    height: 50px;
+    font-size: 25px;
     display: flex;
     flex-direction: row;
-    ;
+    justify-content: space-between;
+    align-items: center;
 }
-.container {
+.container2 {
     margin: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+.greeting {
+    display: flex;
+    margin-left: 40px;
+}
+.hello {
+    margin-right: 30px;
+}
+.navbar {
+    margin-right: 20px
+}
+.navbar > a {
+    margin: 20px;
+}
+
+.search-side {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    margin-left: 30px;
+}
+.search-form {
+    display: flex;
+    flex-direction: column;
+    
+}
+.search-form > * {
+    margin: 5px;
+}
+.search {
+    width: 60px
+}
+.ingredient-search {
+    width: 250px;
+}
+.limit {
+    width: 40px;
+}
+.recipelist{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    margin-right: 30px;
+}
+.recipecard {
+    margin: 10px;
+    padding: 10px 0px 10px 20px;
+    background-color: #b38356;
+    height: 50px;
+    width: 800px;
+    border-radius: 10px;
+}
+.recipe1 {
+    margin-bottom: 5px;
+}
+.recipe2 {
+    display: flex;
+    /* justify-content: space-around; */
+}
+.seemore {
+    margin-left: 10px;
+}
+.seemoreinfo {
+    border-radius: 5px;
+    background-color: #fac593;
+}
+.remove {
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color: #fac593;
+}
+.container3 {
+    margin: 30px;
+}
+.recipe {
+    width: 850px;
+    background-color: #b38356;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+}
+.recipedetail {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    
+}
+.recipe-left {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    margin-left: 20px;
+}
+.recipe-right {
+    grid-column-start: 2;
+    grid-column-end: 4;
 }

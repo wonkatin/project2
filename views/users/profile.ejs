@@ -1,17 +1,32 @@
-<%- include('../partials/search.ejs') %>
-<% if (user) { %>
-    <h4>Hello, <%= user.username %>!</h4>
-  <% } %>
-  <h2>Saved Recipes:</h2>
-<% recipes.forEach(recipe => { %>
-  <h4><%= recipe.dataValues.label %></h4>
-  <form action="/recipes/detail" method="GET">
-    <input type="hidden" name="uri" value="<%= recipe.dataValues.uri %>">
-    <input type="submit" value="See More Info">
-  </form>
-  <form action="/recipes/<%= recipe.id %>>/?_method=DELETE" method="POST">
-    <input type="hidden" name="id" value="<%= recipe.id %>">
-    <input type="submit" value="Remove">
-  </form>
-<% }) %>
+<div class="container2">
+
+  <div class="search-side">
+    <%- include('../partials/search.ejs') %>
+  </div>
+
+  <div class="recipelist">
+      <h2>Saved Recipes:</h2>
+    <% recipes.forEach(recipe => { %>
+      <div class="recipecard">
+        <div class="recipe1">
+          <h3><%= recipe.dataValues.label %></h3>
+        </div>
+        <div class=recipe2>
+          <h4>from "<%= recipe.dataValues.source %>"</h4>
+          <form class="seemore" action="/recipes/detail" method="GET">
+            <input type="hidden" name="uri" value="<%= recipe.dataValues.uri %>">
+            <input class="seemoreinfo" type="submit" value="See More Info">
+          </form>
+          <form action="/recipes/<%= recipe.id %>>/?_method=DELETE" method="POST">
+            <input type="hidden" name="id" value="<%= recipe.id %>">
+            <input class="remove" type="submit" value="Remove">
+          </form>
+        </div>
+      </div>
+
+    <% }) %>
+  
+    </div>
+
+</div>
  

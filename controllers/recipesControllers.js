@@ -17,7 +17,7 @@ router.get('/results', async(req, res) => {
             maxIngr = 30
         }
         // console.log(maxIngr)
-        const results = await axios.get(`https://api.edamam.com/search?q=${search}&app_id=${EDAMAM_APP_ID}&app_key=${EDAMAM_APP_KEY}&ingr=${maxIngr}`)
+        const results = await axios.get(`https://api.edamam.com/search?q=${search}&app_id=${EDAMAM_APP_ID}&app_key=${EDAMAM_APP_KEY}&ingr=${maxIngr}&to=50`)
         console.log(results) 
         res.render('recipes/results', { hits: results.data.hits, search: results.data.q, count: results.data.count, more: results.data.more, from: results.data.from, to: results.data.to })
     } catch(error){
@@ -40,16 +40,20 @@ router.get('/detail', async (req, res) => {
         const deets = await axios.get(`https://api.edamam.com/search?r=${uri}&app_id=${EDAMAM_APP_ID}&app_key=${EDAMAM_APP_KEY}`)
         let reviews = null 
         let recipeUsers = []
+        let ingredients = []
         if (recipe) {
             reviews = recipe.reviews
             recipeUsers = await recipe.getUsers({ raw: true })
+            ingredients = recipe.ingredientLines.split(",")
         }
+        ingredients = deets.data[0].ingredientLines
         
-        // console.log(recipeUsers)
+        console.log(ingredients)
         res.render('recipes/detail', { 
             recipe: deets.data[0], 
             reviews: reviews,
-            users: recipeUsers
+            users: recipeUsers,
+            ingredients: ingredients
         })
        
     } catch (error) {

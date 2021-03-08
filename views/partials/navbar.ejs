@@ -1,10 +1,19 @@
 <header>
-    <a href="/">Home</a>
-    <% if (user) {%>
-        <a href="/users/profile">View Profile</a>
-        <a href="/users/logout" id="logout">Log Out</a>
-    <% } else {%>
-        <a href="/users/new">Sign Up</a>
-        <a href="/users/login">Log In</a>
-    <% } %>
+    <div class="greeting">
+        <% if (user) { %>
+            <div class="hello">Hello, <%= user.username %>!</div>
+            <a href="/users/profile">View Profile</a>
+        <% } %>
+    </div>
+    
+    <div class="navbar">
+        <a href="/">Home</a>
+        <% if (user) {%>
+            <a href="/users/logout" id="logout">Log Out</a>
+        <% } else {%>
+            <a href="/users/new">Sign Up</a>
+            <a href="/users/login">Log In</a>
+        <% } %>
+    </div>
+
 </header>

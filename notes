@@ -37,3 +37,45 @@ router.delete('/:id', async(req, res) => {
     </form>
 
 <% } %>
+
+
+  
+      <!-- <form action="/recipes" method="POST">
+            
+        <input type="hidden" name="label" value="<%= recipe.dataValues.label %>">
+        <input type="hidden" name="uri" value="<%= recipe.dataValues.uri %>">
+        <input type="hidden" name="image" value="<%= recipe.dataValues.image %>">
+        <input type="hidden" name="source" value="<%= recipe.dataValues.source %>">
+        <input type="hidden" name="url" value="<%= recipe.dataValues.url %>">
+        <input type="hidden" name="ingredientLines" value="<%= recipe.dataValues.ingredientLines %>">
+        <input type="hidden" name="cautions" value="<%= recipe.dataValues.cautions %>">
+        <input type="hidden" name="dietLabels" value="<%= recipe.dataValues.dietLabels %>">
+        <input type="hidden" name="healthLabels" value="<%= recipe.dataValues.healthLabels %>">
+          
+      </form>
+       -->
+
+
+
+        <!-- <form action="/recipes" method="POST">
+            
+            <input type="hidden" name="label" value="<%= hit.recipe.label %>">
+            <input type="hidden" name="uri" value="<%= hit.recipe.uri %>">
+            <input type="hidden" name="image" value="<%= hit.recipe.image %>">
+            <input type="hidden" name="source" value="<%= hit.recipe.source %>">
+            <input type="hidden" name="url" value="<%= hit.recipe.url %>">
+            <input type="hidden" name="ingredientLines" value="<%= hit.recipe.ingredientLines %>">
+            <input type="hidden" name="cautions" value="<%= hit.recipe.cautions %>">
+            <input type="hidden" name="dietLabels" value="<%= hit.recipe.dietLabels %>">
+            <input type="hidden" name="healthLabels" value="<%= hit.recipe.healthLabels %>">
+            
+        </form> -->
+
+
+        <% if (more) { %>
+    <p>showing <%= from %> to <%= to %> results</p>
+    <form action="/recipes/results" method="GET">
+        <input type="submit" value="Show More Results">
+    </form>
+
+<% } %>

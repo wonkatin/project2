@@ -30,11 +30,13 @@ router.post('/', async (req, res) => {
         })
         // let recipeUsers = []
         const recipeInfo = await recipe.getReviews({include: db.user})
+        const ingredients = recipe.ingredientLines.split(",")
         // recipeUsers = await recipe.getReviews({include: db.user})
         res.render('recipes/detail', { 
             recipe: recipe, 
             reviews: recipeInfo, 
-            users: recipeInfo 
+            users: recipeInfo ,
+            ingredients: ingredients
         })
     } catch (error) {
         console.log(error)
@@ -51,10 +53,12 @@ router.put('/:id', async (req, res) => {
             content: req.body.content
         })
         const recipeInfo = await recipe.getReviews({include: db.user})
+        const ingredients = recipe.ingredientLines.split(",")
         res.render('recipes/detail', {
             recipe: recipe, 
             reviews: recipeInfo,
-            users: recipeInfo
+            users: recipeInfo,
+            ingredients: ingredients
         })
     } catch (error) {
         console.log(error)
@@ -67,10 +71,12 @@ router.delete('/:id', async(req, res) => {
         const recipe = await review.getRecipe()
         await review.destroy()
         const recipeInfo = await recipe.getReviews({include: db.user})
+        const ingredients = recipe.ingredientLines.split(",")
         res.render('recipes/detail', { 
             recipe: recipe, 
             reviews: recipeInfo,
-            users: recipeInfo 
+            users: recipeInfo,
+            ingredients: ingredients
          })
     } catch (error) {
         console.log(error)

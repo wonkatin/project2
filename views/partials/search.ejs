@@ -1,18 +1,20 @@
-<form action="/recipes/results" method="GET">
-    <label>Search for recipes!</label>
-    <input type="text" name="search1">
+<form class="search-form" action="/recipes/results" method="GET">
+    <h3>Search for recipes!</h3>
+    <input class="ingredient-search" type="text" name="search1" placeholder="insert ingredient">
     <label for="">+</label>
-    <input type="text" name="search2">
+    <input class="ingredient-search" type="text" name="search2" placeholder="insert ingredient">
     <label for="">+</label>
-    <input type="text" name="search3">
+    <input class="ingredient-search" type="text" name="search3" placeholder="insert ingredient">
     <label for="">+</label>
-    <input type="text" name="search4">
+    <input class="ingredient-search" type="text" name="search4" placeholder="insert ingredient">
     <label for="">+</label>
-    <input type="text" name="search5">
-    
-    <label for="maxIngr">Maximum Ingredients</label>
-    <input type="number" max="30" min="1" name="ingr" id="maxIngr">
+    <input class="ingredient-search" type="text" name="search5" placeholder="insert ingredient">
+    <div>
+        <label for="maxIngr">Set Maximum Ingredients:</label>
+        <input class="limit" type="number" max="30" min="1" name="ingr" id="maxIngr">
+
+    </div>
 
 
-    <input type="submit" value="Search">
+    <input class="search" type="submit" value="Search">
 </form>
