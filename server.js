@@ -13,8 +13,7 @@ const bcrypt = require('bcrypt')
 // const EDAMAM_APP_ID = process.env.EDAMAM_APP_ID
 // const EDAMAM_APP_KEY = process.env.EDAMAM_APP_KEY
 const app = express()
-// const PORT = process.env.PORT || 3000
-const PORT = 3000
+
 const rowdyRes = rowdy.begin(app)
 
 
@@ -61,7 +60,7 @@ app.get('/', async (req, res) => {
     })
 })
 
-
+const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
     rowdyRes.print()
 })
