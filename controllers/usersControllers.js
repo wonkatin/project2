@@ -21,7 +21,7 @@ router.post('/new', async (req, res)=> {
     const encryptedUserId = cryptojs.AES.encrypt(newUser.id.toString(), process.env.SECRET_STRING)
     const encryptedUserIdString = encryptedUserId.toString()
     res.cookie('userId', encryptedUserIdString)
-    res.redirect('/users/profile')
+    res.redirect('/')
 })
 
 
@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
             const encryptedUserId = cryptojs.AES.encrypt(user.id.toString(), process.env.SECRET_STRING)
             const encryptedUserIdString = encryptedUserId.toString()
             res.cookie('userId', encryptedUserIdString)
-            res.redirect('/users/profile')
+            res.redirect('/')
         } else {
             res.render('users/login', { errors: "Invalid email/password" })
         }

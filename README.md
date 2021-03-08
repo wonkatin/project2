@@ -77,9 +77,9 @@ Method | URL | Functionality | View
 --- | --- | --- | ---
 GET | / | view home page show all db recipes | renders index.ejs
 GET | /users/new |  display signup page | renders users/new.ejs
-POST| /users/new |  create new user | redirects to users/profile.ejs
+POST| /users/new |  create new user | redirects to index.ejs
 GET | /users/login | display login page | renders users/login.ejs
-POST| /users/login | log in as user | redirects to users/profile.ejs
+POST| /users/login | log in as user | redirects to index.ejs
 GET | /users/profile | show user's profile | renders users/profile.ejs
 GET | /users/logout | log the user out and clear cookie | redirects to index.ejs
 GET | /recipes/results | show search results | renders recipes/results.ejs

@@ -13,6 +13,13 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    border-radius: 10px
+}
+a {
+    color: #7500E4
+}
+li {
+    color: #420378
 }
 .container2 {
     margin: 30px;
@@ -108,8 +115,46 @@ header {
     grid-column-start: 1;
     grid-column-end: 2;
     margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .recipe-right {
     grid-column-start: 2;
     grid-column-end: 4;
 }
+.container4 {
+    margin: 20px
+}
+.save {
+    display: flex;
+    justify-content: flex-end;
+    width: 800px
+}
+.margin-bottom {
+    margin-bottom: 20px
+}
+.reviews {
+    background-color: #422615;
+    width: 850px;
+    margin: 10px 10px 10px 40px;
+    border-radius: 10px;
+    padding: 20px
+}
+.review-detail {
+    background-color: #D3BCFF;
+    margin: 10px 5px 20px 5px;
+    padding: 10px;
+    border-radius: 10px
+}
+.review-detail2 > h4 {
+    margin: 5px 5px 5px 20px
+}
+.review-detail2 {
+    display: flex;
+    
+}
+.space {
+    margin-left: 5px
+}
+
